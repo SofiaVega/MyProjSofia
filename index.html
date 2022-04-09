@@ -4,33 +4,66 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
-        <div id="app" class = "container"> <h1>{{ message }}</h1> </div>
-        <div id = "condicional" class = "container">
-            <div>
-                <h1>Escriba su nombre:</h1>
-                <input type="text" v-model="nombre" placeholder="Escriba su nombre aqui" style="width: 300px;" />
-                <button type="button" class="btn btn-primary" @click="boton">
-                    {{ bandera ? 'Ocultar' : 'Mostrar opciones' }}
-                </button>
-            </div>  
-            <div v-if = "bandera">
-                <h2> Buenas tardes, {{nombre}} </h2>
-                <p> Tienes estas opciones para semana santa </p>
-                <div id = "loop" >
-                    <div class = "row">
-                        <div v-for="card in bucl" class="card" style="width: 18rem;">
-                            <img :src = "card.image" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">{{card.title}}</h5>
-                            <p class="card-text">{{card.text}}</p>
-                            <a href="https://www.vivaaerobus.com/es-mx/" class="btn btn-primary">Vamos</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              </ul>
             </div>
+          </nav>
+      </div>
+
+        <div class = "container">
+            <h1>Cookie clicker 2</h1>
+          <div id="app" class = "row">
+            <div class = "col">
+                <p>Galletas:</p>
+                <p ref="galletas">0</p>
+                <button type="button" class="btn btn-primary mb-3" @click="hacerGalletas">Hacer galletas</button>
+
+                <p>Brownies:</p>
+                <p ref="brownies">0</p>
+                <button type="button" class="btn btn-primary mb-3" @click="hacerBrownies">Hacer brownies</button>
+            </div>
+
+            <div class = "col">
+                <p>Panaderos:</p>
+                <p ref="panaderos">0</p>
+                <button type="button" class="btn btn-primary mb-3" @click="contratarPanaderos">Contratar panaderos:</button>
+
+                <p>Vendedores:</p>
+                <p ref="vendedores">0</p>
+                <button type="button" class="btn btn-primary" @click="contratarVendedores">Contratar vendedores:</button>
+            </div>
+            <div class = "col">
+                <p>Dinero:</p>
+                <p ref="dinero">0</p>
+                <button type="button" class="btn btn-primary mb-3" @click="venderGalletas">Vender galletas</button>
+                
+                <button type="button" class="btn btn-primary" @click="venderBrownies">Vender brownies</button>
+            </div>
+          </div>
+
         </div>
-        <script src="turismo.js"></script>
+        
+        <script src="clicker.js"></script>
 
 
     </body>

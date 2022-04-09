@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class = "container"> <h1>{{ message }}</h1> </div>
+        <div id = "condicional" class = "container">
+            <div>
+                <h1>Escriba su nombre:</h1>
+                <input type="text" v-model="nombre" placeholder="Escriba su nombre aqui" style="width: 300px;" />
+                <button type="button" class="btn btn-primary" @click="boton">
+                    {{ bandera ? 'Ocultar' : 'Mostrar opciones' }}
+                </button>
+            </div>  
+            <div v-if = "bandera">
+                <h2> Buenas tardes, {{nombre}} </h2>
+                <p> Tienes estas opciones para semana santa </p>
+                <div id = "loop" >
+                    <div class = "row">
+                        <div v-for="card in bucl" class="card" style="width: 18rem;">
+                            <img :src = "card.image" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">{{card.title}}</h5>
+                            <p class="card-text">{{card.text}}</p>
+                            <a href="https://www.vivaaerobus.com/es-mx/" class="btn btn-primary">Vamos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="turismo.js"></script>
+
+
+    </body>
+</html>
